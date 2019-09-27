@@ -11,8 +11,16 @@ db.authenticate()
 
 const app = express();
 
+//handlebars
+app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
+//set static 
+app.use(express.static(path.join(__dirname, 'public')));
+
+//index route
 app.get('/', (req,res) => {
-    res.send('INDEX');
+    res.render('index', {layout: 'landing'});
 });
 
 //Gigs routes
