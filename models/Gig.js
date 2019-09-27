@@ -22,4 +22,5 @@ const Gig = db.define('gig', {
     freezeTableName: true
 })
 
+Gig.sync();
 module.exports = Gig;
